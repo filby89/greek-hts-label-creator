@@ -1,0 +1,113 @@
+#! /bin/bash
+
+# Greek Front End for HTS
+# Usage: ./fegr [input text]
+
+##Todo: checking for full spacebar name of file
+##Todo: punctuation marks - caps lock
+
+if [ $# -eq 0 ] || [ -z "$1" ]
+  then
+    echo "Not enough input arguments"
+    echo "Greek Front End for HTS"
+    echo "Usage: ./fegr [input text]" 
+    exit 0
+fi
+
+if [ ! -f $1 ];
+  then
+    echo "File $1 not found."
+    exit 0
+fi
+
+n=$(basename $1)
+base="${n%.*}"
+
+mkdir -p htk_labels
+mkdir -p prompts
+mkdir -p labels/mono
+mkdir -p labels/full
+mkdir -p trash
+
+/usr/bin/python scripts/get_phrase_prons.py "$1" > "prompts/$base.txt.stressed"
+
+/usr/bin/python scripts/syllabify.py "prompts/$base.txt.stressed" corpus_stressed.dico "prompts/$base.txt.stressed.Syllable"
+
+cp $1 "prompts/$base.txt"
+
+iconv -f utf-8 -t iso-8859-7 $1 > trash/converted_input.txt
+iconv -f utf-8 -t iso-8859-7 prompts/$base.txt.stressed > trash/converted_input.stressed
+iconv -f utf-8 -t iso-8859-7 ups2htk_phoneset.map > trash/ups2htk_phoneset.isomap
+
+gcc -o create_lab_file create_lab_file.c
+
+./create_lab_file trash/converted_input.stressed trash/converted_input.txt trash/ups2htk_phoneset.isomap htk2hts_phoneset.map "htk_labels/$base.lab" phoneme_mean_durations.txt
+
+#create directories
+mkdir -p festival/relations/Target
+mkdir -p festival/relations/Segment
+mkdir -p festival/relations/Phrase	
+mkdir -p festival/relations/IntEvent
+mkdir -p festival/relations/Word
+mkdir -p festival/relations/Syllable
+
+#create segment 
+
+/usr/bin/python scripts/lab2segment.py htk2hts_phoneset.map < "htk_labels/$base.lab" > festival/relations/Segment/$base.Segment
+
+#create word 
+/usr/bin/python scripts/lab2word.py < "htk_labels/$base.lab" > festival/relations/Word/$base.Word
+	
+#create syllable
+
+/usr/bin/python scripts/segment2syllable.py prompts/$base.txt.stressed.Syllable festival/relations/Segment/$base.Segment ups2hts_phoneset_extended.map > festival/relations/Syllable/$base.Syllable
+
+#create phrase
+
+/usr/bin/python scripts/segment2phrase.py festival/relations/Segment/$base.Segment > festival/relations/Phrase/$base.Phrase
+
+#create intevent 
+
+/usr/bin/python scripts/syllable2intevent.py < festival/relations/Syllable/$base.Syllable > festival/relations/IntEvent/$base.IntEvent
+
+#create empty target 
+
+
+#rm -f festival/relations/Target/target.log	
+#/usr/local/SPTK/bin/x2x +fa random_lf0 > festival/relations/Target/$base.tmp
+#/usr/bin/python scripts/segment2target.py festival/relations/Segment/$base.Segment festival/relations/Target/$base.tmp 0.005 > festival/relations/Target/$base.Target
+#s=`grep 0.0000 festival/relations/Target/$base.Target | wc -l`
+#echo "$base $${s}" >> festival/relations/Target/target.log
+
+touch festival/relations/Target/$base.Target
+
+
+#create utts
+
+mkdir -p festival/utts
+/home/filby/workspace/speech_synthesis/festival/examples/make_utts festival/relations/Segment/$base.Segment
+
+
+#create labels !!!!!!!!! 
+
+
+/home/filby/workspace/speech_synthesis/festival/examples/dumpfeats    -eval     scripts/extra_feats.scm \
+				-relation Segment \
+				-feats    scripts/label.feats \
+				-output   tmp \
+				festival/utts/$base.utt 
+
+gawk -f scripts/label-full.awk tmp > labels/full/$base.lab
+gawk -f scripts/label-mono.awk tmp > labels/mono/$base.lab
+
+rm -f tmp
+
+
+
+
+
+
+
+
+
+

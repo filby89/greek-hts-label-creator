@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts
+END
+label.feats
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/label.feats
+END
+window.pl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/window.pl
+END
+segment2target.py
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/20921/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/segment2target.py
+END
+addhtkheader.pl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/addhtkheader.pl
+END
+get_word_prons.py
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/get_word_prons.py
+END
+lab2est.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/lab2est.py
+END
+unicode_sort.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/unicode_sort.py
+END
+syllabify.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/projects/!svn/ver/20889/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/syllabify.py
+END
+extra_feats.scm
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/extra_feats.scm
+END
+getf0.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/getf0.tcl
+END
+get_phrase_prons.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/get_phrase_prons.py
+END
+lab2segment.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/projects/!svn/ver/20923/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/lab2segment.py
+END
+syllable2intevent.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/20921/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/syllable2intevent.py
+END
+makefilter.pl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/makefilter.pl
+END
+file.test
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/file.test
+END
+label-full.awk
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/label-full.awk
+END
+lab2word.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/projects/!svn/ver/20921/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/lab2word.py
+END
+segment2syllable.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/!svn/ver/20921/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/segment2syllable.py
+END
+label-mono.awk
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/label-mono.awk
+END
+get_phoneset.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/get_phoneset.py
+END
+convert_phoneset.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/!svn/ver/20867/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/convert_phoneset.py
+END
+segment2phrase.py
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/20914/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/segment2phrase.py
+END
+convert_htk_times.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/20921/av_syn/HTS-demo_CVSP-VOICES-KKF/data/scripts/convert_htk_times.py
+END
